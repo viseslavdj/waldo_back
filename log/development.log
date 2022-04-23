@@ -1,0 +1,386 @@
+  [1m[35m (5.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateChars (20220422165257)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "chars" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "xmin" integer, "xmax" integer, "ymin" integer, "ymax" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220422165257"]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-04-22 16:53:24.223617"], ["updated_at", "2022-04-22 16:53:24.223617"]]
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2022-04-22 19:26:50 +0200
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/vdanilo/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/railties-7.0.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/vdanilo/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/railties-7.0.2.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.8ms | Allocations: 826)
+Completed 200 OK in 36ms (Views: 15.1ms | ActiveRecord: 0.0ms | Allocations: 7463)
+
+
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mChar Create (0.4ms)[0m  [1m[32mINSERT INTO "chars" ("name", "xmin", "xmax", "ymin", "ymax", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", nil], ["xmin", nil], ["xmax", nil], ["ymin", nil], ["ymax", nil], ["created_at", "2022-04-22 17:28:41.472751"], ["updated_at", "2022-04-22 17:28:41.472751"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mChar Destroy (0.3ms)[0m  [1m[31mDELETE FROM "chars" WHERE "chars"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mChar Load (0.3ms)[0m  [1m[34mSELECT "chars".* FROM "chars" WHERE "chars"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChar Load (0.2ms)[0m  [1m[34mSELECT "chars".* FROM "chars" WHERE "chars"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChar Load (0.1ms)[0m  [1m[34mSELECT "chars".* FROM "chars" WHERE "chars"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChar Load (0.3ms)[0m  [1m[34mSELECT "chars".* FROM "chars" WHERE "chars"."id" = ? AND "chars"."xmin" IS NULL AND "chars"."xmax" IS NULL AND "chars"."ymin" IS NULL AND "chars"."ymax" IS NULL LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChar Load (0.3ms)[0m  [1m[34mSELECT "chars".* FROM "chars"[0m
+  [1m[36mChar Load (0.1ms)[0m  [1m[34mSELECT "chars".* FROM "chars"[0m
+  [1m[36mChar Load (0.1ms)[0m  [1m[34mSELECT "chars".* FROM "chars"[0m
+  [1m[36mChar Delete All (5.1ms)[0m  [1m[31mDELETE FROM "chars"[0m
+  [1m[36mChar Load (0.2ms)[0m  [1m[34mSELECT "chars".* FROM "chars" WHERE "chars"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mChar Create (0.6ms)[0m  [1m[32mINSERT INTO "chars" ("name", "xmin", "xmax", "ymin", "ymax", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", nil], ["xmin", nil], ["xmax", nil], ["ymin", nil], ["ymax", nil], ["created_at", "2022-04-22 17:37:24.892686"], ["updated_at", "2022-04-22 17:37:24.892686"]]
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for 127.0.0.1 at 2022-04-22 19:37:57 +0200
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/vdanilo/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/railties-7.0.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/vdanilo/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/railties-7.0.2.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 4.4ms | Allocations: 721)
+Completed 200 OK in 29ms (Views: 11.9ms | ActiveRecord: 0.0ms | Allocations: 6192)
+
+
+Started GET "/api/chars" for 127.0.0.1 at 2022-04-22 19:38:07 +0200
+  
+SyntaxError (/home/vdanilo/repos/wheres-waldo-back/app/controllers/api/chars_controller.rb:20: syntax error, unexpected symbol literal
+...e(:char).permit(:name, :xmin. :xmax, :ymin, :ymax)    
+...                              ^
+):
+  
+app/controllers/api/chars_controller.rb:20: syntax error, unexpected symbol literal
+app/controllers/api/chars_controller.rb:20: syntax error, unexpected symbol literal
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-04-22 19:38:08 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mChar Delete All (6.6ms)[0m  [1m[31mDELETE FROM "chars"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mChar Create (0.4ms)[0m  [1m[32mINSERT INTO "chars" ("name", "xmin", "xmax", "ymin", "ymax", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "boban"], ["xmin", 1], ["xmax", 3], ["ymin", 1], ["ymax", 3], ["created_at", "2022-04-22 17:39:39.694993"], ["updated_at", "2022-04-22 17:39:39.694993"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/api/chars" for 127.0.0.1 at 2022-04-22 19:39:50 +0200
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/vdanilo/repos/wheres-waldo-back/app/controllers/api/chars_controller.rb:20: syntax error, unexpected symbol literal
+...e(:char).permit(:name, :xmin. :xmax, :ymin, :ymax)    
+...                              ^
+):
+  
+app/controllers/api/chars_controller.rb:20: syntax error, unexpected symbol literal
+app/controllers/api/chars_controller.rb:20: syntax error, unexpected symbol literal
+Started GET "/api/chars" for 127.0.0.1 at 2022-04-22 19:39:52 +0200
+  
+SyntaxError (/home/vdanilo/repos/wheres-waldo-back/app/controllers/api/chars_controller.rb:20: syntax error, unexpected symbol literal
+...e(:char).permit(:name, :xmin. :xmax, :ymin, :ymax)    
+...                              ^
+):
+  
+app/controllers/api/chars_controller.rb:20: syntax error, unexpected symbol literal
+app/controllers/api/chars_controller.rb:20: syntax error, unexpected symbol literal
+Started GET "/api/chars" for 127.0.0.1 at 2022-04-22 19:41:58 +0200
+  
+SyntaxError (/home/vdanilo/repos/wheres-waldo-back/app/controllers/api/chars_controller.rb:21: syntax error, unexpected symbol literal
+...e(:char).permit(:name, :xmin. :xmax, :ymin, :ymax) 
+...                              ^
+):
+  
+app/controllers/api/chars_controller.rb:21: syntax error, unexpected symbol literal
+app/controllers/api/chars_controller.rb:21: syntax error, unexpected symbol literal
+Started GET "/api/chars" for 127.0.0.1 at 2022-04-22 19:43:19 +0200
+  
+SyntaxError (/home/vdanilo/repos/wheres-waldo-back/app/controllers/api/chars_controller.rb:22: syntax error, unexpected symbol literal
+...e(:char).permit(:name, :xmin. :xmax, :ymin, :ymax) 
+...                              ^
+):
+  
+app/controllers/api/chars_controller.rb:22: syntax error, unexpected symbol literal
+app/controllers/api/chars_controller.rb:22: syntax error, unexpected symbol literal
+Started GET "/api/chars" for 127.0.0.1 at 2022-04-22 19:45:14 +0200
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/vdanilo/repos/wheres-waldo-back/app/controllers/api/chars_controller.rb:22: syntax error, unexpected symbol literal
+...e(:char).permit(:name, :xmin. :xmax, :ymin, :ymax) 
+...                              ^
+):
+  
+app/controllers/api/chars_controller.rb:22: syntax error, unexpected symbol literal
+app/controllers/api/chars_controller.rb:22: syntax error, unexpected symbol literal
+Started GET "/" for 127.0.0.1 at 2022-04-22 19:45:21 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/vdanilo/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/railties-7.0.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/vdanilo/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/railties-7.0.2.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.1ms | Allocations: 412)
+Completed 200 OK in 14ms (Views: 4.3ms | ActiveRecord: 0.0ms | Allocations: 3916)
+
+
+Started GET "/api/chars" for 127.0.0.1 at 2022-04-22 19:45:31 +0200
+  
+SyntaxError (/home/vdanilo/repos/wheres-waldo-back/app/controllers/api/chars_controller.rb:22: syntax error, unexpected symbol literal
+...e(:char).permit(:name, :xmin. :xmax, :ymin, :ymax) 
+...                              ^
+):
+  
+app/controllers/api/chars_controller.rb:22: syntax error, unexpected symbol literal
+app/controllers/api/chars_controller.rb:22: syntax error, unexpected symbol literal
+Started GET "/api/chars" for 127.0.0.1 at 2022-04-22 19:47:11 +0200
+  
+SyntaxError (/home/vdanilo/repos/wheres-waldo-back/app/controllers/api/chars_controller.rb:22: syntax error, unexpected symbol literal
+...e(:char).permit(:name, :xmin. :xmax, :ymin, :ymax) 
+...                              ^
+):
+  
+app/controllers/api/chars_controller.rb:22: syntax error, unexpected symbol literal
+app/controllers/api/chars_controller.rb:22: syntax error, unexpected symbol literal
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mChar Create (0.4ms)[0m  [1m[32mINSERT INTO "chars" ("name", "xmin", "xmax", "ymin", "ymax", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "boki"], ["xmin", 1], ["xmax", 3], ["ymin", 1], ["ymax", 3], ["created_at", "2022-04-22 17:52:26.057179"], ["updated_at", "2022-04-22 17:52:26.057179"]]
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mChar Load (0.4ms)[0m  [1m[34mSELECT "chars".* FROM "chars"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mChar Destroy (0.3ms)[0m  [1m[31mDELETE FROM "chars" WHERE "chars"."id" = ?[0m  [["id", 3]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mChar Destroy (0.3ms)[0m  [1m[31mDELETE FROM "chars" WHERE "chars"."id" = ?[0m  [["id", 4]]
+  [1m[36mTRANSACTION (9.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mChar Load (0.2ms)[0m  [1m[34mSELECT "chars".* FROM "chars"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mChar Create (0.4ms)[0m  [1m[32mINSERT INTO "chars" ("name", "xmin", "xmax", "ymin", "ymax", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "boki"], ["xmin", 1], ["xmax", 3], ["ymin", 1], ["ymax", 3], ["created_at", "2022-04-22 17:53:42.563226"], ["updated_at", "2022-04-22 17:53:42.563226"]]
+  [1m[36mTRANSACTION (6.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mChar Load (0.2ms)[0m  [1m[34mSELECT "chars".* FROM "chars"[0m
+Started GET "/api/chars" for 127.0.0.1 at 2022-04-22 19:54:03 +0200
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/vdanilo/repos/wheres-waldo-back/app/controllers/api/chars_controller.rb:22: syntax error, unexpected symbol literal
+...e(:char).permit(:name, :xmin. :xmax, :ymin, :ymax) 
+...                              ^
+):
+  
+app/controllers/api/chars_controller.rb:22: syntax error, unexpected symbol literal
+app/controllers/api/chars_controller.rb:22: syntax error, unexpected symbol literal
+Started GET "/api/chars" for 127.0.0.1 at 2022-04-22 20:04:21 +0200
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/vdanilo/repos/wheres-waldo-back/app/controllers/api/chars_controller.rb:20: syntax error, unexpected symbol literal
+...e(:char).permit(:name, :xmin. :xmax, :ymin, :ymax) 
+...                              ^
+):
+  
+app/controllers/api/chars_controller.rb:20: syntax error, unexpected symbol literal
+app/controllers/api/chars_controller.rb:20: syntax error, unexpected symbol literal
+Started GET "/api/chars" for 127.0.0.1 at 2022-04-22 20:05:28 +0200
+Processing by Api::CharsController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/chars_controller.rb:5:in `index'
+  [1m[36mChar Load (0.4ms)[0m  [1m[34mSELECT "chars".* FROM "chars"[0m
+  ↳ app/controllers/api/chars_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.03ms)
+Completed 200 OK in 130ms (Views: 125.6ms | ActiveRecord: 3.6ms | Allocations: 12006)
+
+
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mChar Load (0.3ms)[0m  [1m[34mSELECT "chars".* FROM "chars"[0m
+Started GET "/api/chars" for 127.0.0.1 at 2022-04-22 20:06:38 +0200
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::CharsController#index as HTML
+  [1m[36mChar Load (0.3ms)[0m  [1m[34mSELECT "chars".* FROM "chars"[0m
+  ↳ app/controllers/api/chars_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.94ms)
+Completed 200 OK in 88ms (Views: 37.6ms | ActiveRecord: 1.4ms | Allocations: 23348)
+
+
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mChar Delete All (6.6ms)[0m  [1m[31mDELETE FROM "chars"[0m
+  [1m[36mChar Load (0.3ms)[0m  [1m[34mSELECT "chars".* FROM "chars"[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mChar Load (0.3ms)[0m  [1m[34mSELECT "chars".* FROM "chars"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mChar Create (0.5ms)[0m  [1m[32mINSERT INTO "chars" ("name", "xmin", "xmax", "ymin", "ymax", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "waldo"], ["xmin", 802], ["xmax", 816], ["ymin", 432], ["ymax", 446], ["created_at", "2022-04-22 20:55:02.827305"], ["updated_at", "2022-04-22 20:55:02.827305"]]
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mChar Load (0.2ms)[0m  [1m[34mSELECT "chars".* FROM "chars"[0m
+Started GET "/api/chars" for 127.0.0.1 at 2022-04-22 22:55:37 +0200
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::CharsController#index as HTML
+  [1m[36mChar Load (0.4ms)[0m  [1m[34mSELECT "chars".* FROM "chars"[0m
+  ↳ app/controllers/api/chars_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.2ms)
+Completed 200 OK in 94ms (Views: 52.5ms | ActiveRecord: 3.4ms | Allocations: 23328)
+
+
+Started GET "/api/chars/6" for 127.0.0.1 at 2022-04-22 23:22:32 +0200
+Processing by Api::CharsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/chars_controller.rb:16:in `show'
+  [1m[36mChar Load (0.5ms)[0m  [1m[34mSELECT "chars".* FROM "chars" WHERE "chars"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/chars_controller.rb:16:in `show'
+Completed 200 OK in 25ms (Views: 1.3ms | ActiveRecord: 1.0ms | Allocations: 5148)
+
+
+Started GET "/api/chars/6" for 127.0.0.1 at 2022-04-22 23:26:29 +0200
+  
+SyntaxError (/home/vdanilo/repos/wheres-waldo-back/app/controllers/api/chars_controller.rb:18: syntax error, unexpected ':', expecting ')'
+... [:name], :include => response: true)
+...                              ^
+):
+  
+app/controllers/api/chars_controller.rb:18: syntax error, unexpected ':', expecting ')'
+app/controllers/api/chars_controller.rb:18: syntax error, unexpected ':', expecting ')'
+Started GET "/api/chars/6" for 127.0.0.1 at 2022-04-22 23:27:28 +0200
+Processing by Api::CharsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/chars_controller.rb:16:in `show'
+  [1m[36mChar Load (0.4ms)[0m  [1m[34mSELECT "chars".* FROM "chars" WHERE "chars"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/chars_controller.rb:16:in `show'
+Completed 200 OK in 31ms (Views: 1.0ms | ActiveRecord: 4.9ms | Allocations: 4578)
+
+
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mChar Create (0.9ms)[0m  [1m[32mINSERT INTO "chars" ("name", "xmin", "xmax", "ymin", "ymax", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "wanda"], ["xmin", 456], ["xmax", 470], ["ymin", 242], ["ymax", 256], ["created_at", "2022-04-22 21:29:44.471176"], ["updated_at", "2022-04-22 21:29:44.471176"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mChar Create (0.4ms)[0m  [1m[32mINSERT INTO "chars" ("name", "xmin", "xmax", "ymin", "ymax", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "odlaw"], ["xmin", 294], ["xmax", 308], ["ymin", 377], ["ymax", 391], ["created_at", "2022-04-22 21:30:54.835199"], ["updated_at", "2022-04-22 21:30:54.835199"]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mChar Create (0.8ms)[0m  [1m[32mINSERT INTO "chars" ("name", "xmin", "xmax", "ymin", "ymax", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "whitebeard"], ["xmin", 59], ["xmax", 73], ["ymin", 448], ["ymax", 462], ["created_at", "2022-04-22 21:31:55.376390"], ["updated_at", "2022-04-22 21:31:55.376390"]]
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mChar Load (0.3ms)[0m  [1m[34mSELECT "chars".* FROM "chars"[0m
+  [1m[35m (293.1ms)[0m  [1m[35mCREATE DATABASE "waldo_api_development" ENCODING = 'utf8'[0m
+  [1m[35m (214.1ms)[0m  [1m[35mCREATE DATABASE "waldo_api_test" ENCODING = 'utf8'[0m
+  [1m[35m (16.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (9.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5643166925678949870)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateChars (20220422165257)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "chars" ("id" bigserial primary key, "name" character varying, "xmin" integer, "xmax" integer, "ymin" integer, "ymax" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5643166925678949870)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5643166925678949870)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5643166925678949870)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5643166925678949870)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateChars (20220422165257)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "chars" ("id" bigserial primary key, "name" character varying, "xmin" integer, "xmax" integer, "ymin" integer, "ymax" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(5643166925678949870)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5643166925678949870)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateChars (20220422165257)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.6ms)[0m  [1m[35mCREATE TABLE "chars" ("id" bigserial primary key, "name" character varying, "xmin_" integer, "xmax_" integer, "ymin_" integer, "ymax_" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220422165257"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-04-22 23:21:45.554916"], ["updated_at", "2022-04-22 23:21:45.554916"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5643166925678949870)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2022-04-23 01:22:25 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/vdanilo/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/railties-7.0.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/vdanilo/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/railties-7.0.2.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.2ms | Allocations: 722)
+Completed 200 OK in 19ms (Views: 8.2ms | ActiveRecord: 0.0ms | Allocations: 6188)
+
+
+Started GET "/api/chars" for 127.0.0.1 at 2022-04-23 01:22:30 +0200
+Processing by Api::CharsController#index as HTML
+  [1m[36mChar Load (1.1ms)[0m  [1m[34mSELECT "chars".* FROM "chars"[0m
+  ↳ app/controllers/api/chars_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 200 OK in 21ms (Views: 13.0ms | ActiveRecord: 1.1ms | Allocations: 3689)
+
+
+  [1m[36mChar Load (1.0ms)[0m  [1m[34mSELECT "chars".* FROM "chars"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChar Create (1.0ms)[0m  [1m[32mINSERT INTO "chars" ("name", "xmin_", "xmax_", "ymin_", "ymax_", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "waldo"], ["xmin_", nil], ["xmax_", nil], ["ymin_", nil], ["ymax_", nil], ["created_at", "2022-04-22 23:24:17.130549"], ["updated_at", "2022-04-22 23:24:17.130549"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mChar Load (0.5ms)[0m  [1m[34mSELECT "chars".* FROM "chars"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChar Create (0.4ms)[0m  [1m[32mINSERT INTO "chars" ("name", "xmin_", "xmax_", "ymin_", "ymax_", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "wanda"], ["xmin_", nil], ["xmax_", nil], ["ymin_", nil], ["ymax_", nil], ["created_at", "2022-04-22 23:24:48.670802"], ["updated_at", "2022-04-22 23:24:48.670802"]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChar Create (0.5ms)[0m  [1m[32mINSERT INTO "chars" ("name", "xmin_", "xmax_", "ymin_", "ymax_", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "odlaw"], ["xmin_", nil], ["xmax_", nil], ["ymin_", nil], ["ymax_", nil], ["created_at", "2022-04-22 23:25:11.661498"], ["updated_at", "2022-04-22 23:25:11.661498"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChar Create (0.5ms)[0m  [1m[32mINSERT INTO "chars" ("name", "xmin_", "xmax_", "ymin_", "ymax_", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "whitebeard"], ["xmin_", nil], ["xmax_", nil], ["ymin_", nil], ["ymax_", nil], ["created_at", "2022-04-22 23:25:31.955829"], ["updated_at", "2022-04-22 23:25:31.955829"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/chars" for 127.0.0.1 at 2022-04-23 01:25:42 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::CharsController#index as HTML
+  [1m[36mChar Load (0.8ms)[0m  [1m[34mSELECT "chars".* FROM "chars"[0m
+  ↳ app/controllers/api/chars_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (65.23ms)
+Completed 500 Internal Server Error in 168ms (ActiveRecord: 17.2ms | Allocations: 27171)
+
+
+  
+NoMethodError (undefined method `xmin' for #<Char id: 1, name: "waldo", xmin_: nil, xmax_: nil, ymin_: nil, ymax_: nil, created_at: "2022-04-22 23:24:17.130549000 +0000", updated_at: "2022-04-22 23:24:17.130549000 +0000">
+Did you mean?  xmin_):
+  
+app/controllers/api/chars_controller.rb:5:in `index'
+  [1m[36mChar Load (1.2ms)[0m  [1m[34mSELECT "chars".* FROM "chars"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChar Create (0.7ms)[0m  [1m[32mINSERT INTO "chars" ("name", "xmin_", "xmax_", "ymin_", "ymax_", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "hey"], ["xmin_", 294], ["xmax_", 308], ["ymin_", 377], ["ymax_", 391], ["created_at", "2022-04-22 23:28:05.889226"], ["updated_at", "2022-04-22 23:28:05.889226"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mChar Load (0.7ms)[0m  [1m[34mSELECT "chars".* FROM "chars"[0m
+Started GET "/api/chars" for 127.0.0.1 at 2022-04-23 01:28:29 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::CharsController#index as HTML
+  [1m[36mChar Load (1.0ms)[0m  [1m[34mSELECT "chars".* FROM "chars"[0m
+  ↳ app/controllers/api/chars_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (68.68ms)
+Completed 500 Internal Server Error in 171ms (ActiveRecord: 24.8ms | Allocations: 27233)
+
+
+  
+NoMethodError (undefined method `xmin' for #<Char id: 1, name: "waldo", xmin_: nil, xmax_: nil, ymin_: nil, ymax_: nil, created_at: "2022-04-22 23:24:17.130549000 +0000", updated_at: "2022-04-22 23:24:17.130549000 +0000">
+Did you mean?  xmin_):
+  
+app/controllers/api/chars_controller.rb:5:in `index'
+Started GET "/api/chars" for 127.0.0.1 at 2022-04-23 01:29:21 +0200
+Processing by Api::CharsController#index as HTML
+  [1m[36mChar Load (0.4ms)[0m  [1m[34mSELECT "chars".* FROM "chars"[0m
+  ↳ app/controllers/api/chars_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.45ms)
+Completed 200 OK in 34ms (Views: 22.4ms | ActiveRecord: 9.0ms | Allocations: 5167)
+
+
+Started GET "/api/chars/1" for 127.0.0.1 at 2022-04-23 01:29:28 +0200
+Processing by Api::CharsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mChar Load (0.5ms)[0m  [1m[34mSELECT "chars".* FROM "chars" WHERE "chars"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/chars_controller.rb:16:in `show'
+Completed 200 OK in 19ms (Views: 2.2ms | ActiveRecord: 5.0ms | Allocations: 2042)
+
+
